@@ -1,0 +1,2 @@
+For SweetAlert :
+link: https://realrashid.github.io/sweet-alert/usage?id=usage
