@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /BTS ADMIN
+/CLIENTS
 .env
 .env.backup
 .phpunit.result.cache
