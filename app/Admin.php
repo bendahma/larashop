@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\User;
 
-class Client extends Model
+class Admin extends Model
 {
     protected $guarded = [];
 
