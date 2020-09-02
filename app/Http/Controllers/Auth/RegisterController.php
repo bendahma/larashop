@@ -29,6 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
@@ -50,7 +51,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,10 +67,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        
+        $user = null;
+
+        if($data['role'] == 'client'){
+            $user = User::create([
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'phone' => $data['phone'],
+                'email' => $data['email'],
+                'username' => $data['username'],
+                'password' => Hash::make($data['password']),
+                'role' => $data['role'],
+            ]);
+            $user->clients()->create([
+                'addressOne' => $data['address'],
+                'commune' => $data['commune'],
+                'wilaya' => $data['wilaya'],
+            ]);
+        };
+
+        return $user ;
+
+        
     }
 }

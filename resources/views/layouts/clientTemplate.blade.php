@@ -53,10 +53,36 @@
 					</div>
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
+							@guest
+								<div class="up-item">
+									<i class="flaticon-profile"></i>
+									<a href="{{route('login')}}">Sign</a> In or <a href="{{route('register')}}">Create Account</a>
+								</div>
+							@else
 							<div class="up-item">
-								<i class="flaticon-profile"></i>
-								<a href="#">Sign</a> In or <a href="#">Create Account</a>
+								<div class="nav-item dropdown">
+									{{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+										{{ Auth::user()->firstName }} <span class="caret"></span>
+									</a> --}}
+	
+									{{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
+										{{-- <a href="" class="dropdown-item" >Profile</a> --}}
+										<a class="dropdown-item" href="{{ route('logout') }}"
+										   onclick="event.preventDefault();
+														 document.getElementById('logout-form').submit();">
+											{{ __('Logout') }}
+										</a>
+	
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											@csrf
+										</form>
+									{{-- </div> --}}
+								</div>
+									
 							</div>
+						 
+							@endguest
+							
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
@@ -516,6 +542,7 @@
     {{-- Javascript Plugins --}}
     <section>
             <!--====== Javascripts & Jquery ======-->
+            <script src="{{asset('js/app.js')}}"></script>
             <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
             <script src="{{asset('js/bootstrap.min.js')}}"></script>
             <script src="{{asset('js/jquery.slicknav.min.js')}}"></script>
