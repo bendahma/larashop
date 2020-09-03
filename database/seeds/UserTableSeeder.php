@@ -13,9 +13,14 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Bendahma amine',
-            'email' => 'bendahma@laraprint.com',
+            'firstName' => 'Bendahma',
+            'lastName' => 'Amine',
+            'DateOfBirth' => '1993-08-14',
+            'phone' => '213666930103',
+            'username' => 'bendahma',
+            'email' => 'mkaddourbendahma@gmail.com',
             'password' => Hash::make('aaaaaaaa'),
+            'role' => 'admin',
         ]);
     }
 }

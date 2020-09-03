@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class AdminSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $user = User::where('role','admin')->first();
     }
 }
