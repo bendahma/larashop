@@ -11,6 +11,10 @@ class ManagerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('managers')->insert([
+            'salaire' => 25000,
+            'bonus' => 10000,
+            'user_id' => 2,
+        ]);
     }
 }

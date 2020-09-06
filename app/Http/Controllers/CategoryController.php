@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Image;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\Category\AddCategoryRequest;
+use Alert;
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::with('image')->get();
+
+        return view('backoffice.category.index')->with('categories',$categories);
     }
 
     /**
@@ -24,18 +28,27 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backoffice.category.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(AddCategoryRequest $request)
     {
-        //
+        $imageUrl = $request->image->store('upload');
+
+        $category = Category::create([
+            'name' => $request->name,
+        ]);
+
+        $image = Image::create([
+            'url' => $imageUrl,
+            'category_id' => $category->id
+        ]);
+
+        
+        Alert::success('New Category', 'New Category Added successfully');
+
+        return redirect(route('category.index'));
+
     }
 
     /**
@@ -57,7 +70,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('backoffice.category.add')->with('category',$category);
     }
 
     /**
@@ -67,9 +80,23 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(AddCategoryRequest $request, Category $category)
     {
-        //
+
+        if(!$request->hasFile('image')){
+            $category->update([
+                'name' => $request->name,
+            ]);
+        }else{
+            $imageUrl = $request->image->store('upload');
+            $category->image()->update([
+                'url' => $imageUrl,
+            ]);
+        }
+        
+        Alert::success('Update Category', 'Category Updated successfully');
+
+        return redirect(route('category.index'));
     }
 
     /**
@@ -80,6 +107,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        Alert::success('Delete Category', 'Category Delete successfully');
+
+        return redirect(route('category.index'));
     }
 }

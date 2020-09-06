@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Admin;
 
 class AdminSeeder extends Seeder
 {
@@ -12,6 +13,9 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::where('role','admin')->first();
+        DB::table('admins')->insert([
+            'user_id' => 1,
+        ]);
+        
     }
 }

@@ -11,6 +11,12 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('clients')->insert([
+            'addressOne' => 'N° 88 cite lamitier',
+            'addressTwo' => '11 cite ccls',
+            'commune' => 'Ain Temouchent',
+            'wilaya' => 'Ain Temouchent',
+            'user_id' => 3,
+        ]);
     }
 }

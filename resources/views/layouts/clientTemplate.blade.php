@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Divisima | eCommerce Template</title>
+	<title>Larashop</title>
 	<meta charset="UTF-8">
-	<meta name="description" content=" Divisima | eCommerce Template">
-	<meta name="keywords" content="divisima, eCommerce, creative, html">
+	<meta name="description" content="">
+	<meta name="keywords" content="Larashop, Laravel, eShop, eCommerce">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->
 	<link href="img/favicon.ico" rel="shortcut icon"/>
