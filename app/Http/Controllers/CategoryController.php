@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('image')->get();
+        $categories = Category::with('image')->orderBy('order','ASC')->get();
 
         return view('backoffice.category.index')->with('categories',$categories);
     }
@@ -37,6 +37,8 @@ class CategoryController extends Controller
 
         $category = Category::create([
             'name' => $request->name,
+            'new' => $request->new,
+            'order' => $request->order,
         ]);
 
         $image = Image::create([
@@ -45,7 +47,7 @@ class CategoryController extends Controller
         ]);
 
         
-        Alert::success('New Category', 'New Category Added successfully');
+        Alert::success('New Category Added successfully','');
 
         return redirect(route('category.index'));
 
@@ -80,12 +82,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(AddCategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
 
         if(!$request->hasFile('image')){
             $category->update([
                 'name' => $request->name,
+                'new' => $request->new,
+                'order' => $request->order,
             ]);
         }else{
             $imageUrl = $request->image->store('upload');

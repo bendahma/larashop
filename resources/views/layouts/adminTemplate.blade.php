@@ -12,15 +12,17 @@
   <title>Admin - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="{{asset('css/app.css')}}" rel="stylesheet">
+  <link href="{{asset('css/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+  <link href="{{asset('css/summernote-bs4.min.css')}}" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
+  @include('sweetalert::alert')
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -62,6 +64,7 @@
             <h6 class="collapse-header">Products</h6>
             <a class="collapse-item" href="{{route('product.index')}}">List Of Products</a>
             <a class="collapse-item" href="{{route('product.create')}}">New Product</a>
+            <a class="collapse-item" href="{{route('product.removed')}}">Removed Product</a>
           </div>
         </div>
       </li>
@@ -107,6 +110,28 @@
         </div>
       </li>
 
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        STORE
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Stock</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">STOCK</h6>
+            <a class="collapse-item" href="">Check Stock</a>
+            <a class="collapse-item" href="">Fill Stock</a>
+          </div>
+        </div>
+      </li>
+
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
@@ -130,7 +155,6 @@
       </div>
 
     </ul>
-
     <div id="content-wrapper" class="d-flex flex-column">
 
       <div id="content">
@@ -325,6 +349,7 @@
 
             @yield('content');
             @yield('list');
+            @yield('productList');
 
         </div>
 
@@ -371,7 +396,17 @@
   </div>
 
   <script src="{{asset('js/app.js')}}"></script>
-  @include('sweetalert::alert')
+  <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('js/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{asset('js/summernote-bs4.min.js')}}"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function () {
+        $('#Table').DataTable();
+        $('.summernote').summernote();
+    });
+    
+  </script>
 
 </body>
 

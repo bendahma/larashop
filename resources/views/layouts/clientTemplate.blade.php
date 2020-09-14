@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}"/>
 	<link rel="stylesheet" href="{{asset('css/animate.css')}}"/>
 	<link rel="stylesheet" href="{{asset('css/style.css')}}"/>
+	<link rel="stylesheet" href="{{asset('css/fontawsome.css')}}"/>
 
 
 	
@@ -47,8 +48,8 @@
 					</div>
 					<div class="col-xl-6 col-lg-5">
 						<form class="header-search-form">
-							<input type="text" placeholder="Search on divisima ....">
-							<button><i class="flaticon-search"></i></button>
+							<input type="text" placeholder="Search on LaraShop ....">
+							<button> <span style="color:lightgray"><i class="fas fa-search mr-2"></i></span> </button>
 						</form>
 					</div>
 					<div class="col-xl-4 col-lg-5">
@@ -61,22 +62,20 @@
 							@else
 							<div class="up-item">
 								<div class="nav-item dropdown">
-									{{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+									 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 										{{ Auth::user()->firstName }} <span class="caret"></span>
-									</a> --}}
+									</a>
 	
-									{{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
-										{{-- <a href="" class="dropdown-item" >Profile</a> --}}
-										<a class="dropdown-item" href="{{ route('logout') }}"
-										   onclick="event.preventDefault();
-														 document.getElementById('logout-form').submit();">
-											{{ __('Logout') }}
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+										<a href="" class="dropdown-item" >Profile</a>
+										<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+											<span ><i class="fas fa-sign-out-alt" style="font-size: 0.9rem"></i></span> {{ __('Logout') }}
 										</a>
 	
 										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 											@csrf
 										</form>
-									{{-- </div> --}}
+									</div>
 								</div>
 									
 							</div>
@@ -85,10 +84,10 @@
 							
 							<div class="up-item">
 								<div class="shopping-card">
-									<i class="flaticon-bag"></i>
-									<span>0</span>
+									<i class="fas fa-shopping-cart mr-2" style="font-size: 1.1rem"></i>
+									<span class="mr-3" style="font-size: 0.6rem">0</span>
 								</div>
-								<a href="#">Shopping Cart</a>
+								<a href="#" class="ml-2">Shopping Cart</a>
 							</div>
 						</div>
 					</div>
@@ -99,22 +98,15 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Women</a></li>
-					<li><a href="#">Men</a></li>
-					<li><a href="#">Jewelry
-						<span class="new">New</span>
-					</a></li>
-					<li><a href="#">Shoes</a>
-						<ul class="sub-menu">
-							<li><a href="#">Sneakers</a></li>
-							<li><a href="#">Sandals</a></li>
-							<li><a href="#">Formal Shoes</a></li>
-							<li><a href="#">Boots</a></li>
-							<li><a href="#">Flip Flops</a></li>
-						</ul>
+					@foreach ($categories as $category)
+					<li>
+						<a href="#">{{$category->name}} @if($category->new == 1) <span class="new">New</span> @endif</a>
 					</li>
-					<li><a href="#">Pages</a>
+					
+					@endforeach
+					
+					{{-- Sub-menu --}}
+					{{-- <li><a href="#">Pages</a>
 						<ul class="sub-menu">
 							<li><a href="./product.html">Product Page</a></li>
 							<li><a href="./category.html">Category Page</a></li>
@@ -123,310 +115,13 @@
 							<li><a href="./contact.html">Contact Page</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Blog</a></li>
+					<li><a href="#">Blog</a></li> --}}
 				</ul>
 			</div>
 		</nav>
 	</header>
 
-	<!-- Hero section -->
-	<section class="hero-section">
-		<div class="hero-slider owl-carousel">
-			<div class="hs-item set-bg" data-setbg="img/bg.jpg">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-6 col-lg-7 text-white">
-							<span>New Arrivals</span>
-							<h2>denim jackets</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
-							<a href="#" class="site-btn sb-white">ADD TO CART</a>
-						</div>
-					</div>
-					<div class="offer-card text-white">
-						<span>from</span>
-						<h2>$29</h2>
-						<p>SHOP NOW</p>
-					</div>
-				</div>
-			</div>
-			<div class="hs-item set-bg" data-setbg="img/bg-2.jpg">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-6 col-lg-7 text-white">
-							<span>New Arrivals</span>
-							<h2>denim jackets</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-							<a href="#" class="site-btn sb-line">DISCOVER</a>
-							<a href="#" class="site-btn sb-white">ADD TO CART</a>
-						</div>
-					</div>
-					<div class="offer-card text-white">
-						<span>from</span>
-						<h2>$29</h2>
-						<p>SHOP NOW</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="slide-num-holder" id="snh-1"></div>
-		</div>
-	</section>
-
-	<!-- Features section -->
-	<section class="features-section">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-4 p-0 feature">
-					<div class="feature-inner">
-						<div class="feature-icon">
-							<img src="img/icons/1.png" alt="#">
-						</div>
-						<h2>Fast Secure Payments</h2>
-					</div>
-				</div>
-				<div class="col-md-4 p-0 feature">
-					<div class="feature-inner">
-						<div class="feature-icon">
-							<img src="img/icons/2.png" alt="#">
-						</div>
-						<h2>Premium Products</h2>
-					</div>
-				</div>
-				<div class="col-md-4 p-0 feature">
-					<div class="feature-inner">
-						<div class="feature-icon">
-							<img src="img/icons/3.png" alt="#">
-						</div>
-						<h2>Free & fast Delivery</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- letest product section -->
-	<section class="top-letest-product-section">
-		<div class="container">
-			<div class="section-title">
-				<h2>LATEST PRODUCTS</h2>
-			</div>
-			<div class="product-slider owl-carousel">
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="./img/product/1.jpg" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="fas fa-heart text-danger"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-				<div class="product-item">
-					<div class="pi-pic">
-						<div class="tag-new">New</div>
-						<img src="./img/product/2.jpg" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Black and White Stripes Dress</p>
-					</div>
-				</div>
-				<div class="product-item">
-					<div class="pi-pic">
-						<img src="./img/product/3.jpg" alt="">
-						<div class="pi-links">
-							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-							<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-						</div>
-					</div>
-					<div class="pi-text">
-						<h6>$35,00</h6>
-						<p>Flamboyant Pink Top </p>
-					</div>
-				</div>
-				<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/4.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/6.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Product filter section -->
-	<section class="product-filter-section">
-		<div class="container">
-			<div class="section-title">
-				<h2>BROWSE TOP SELLING PRODUCTS</h2>
-			</div>
-			<ul class="product-filter-menu">
-				<li><a href="#">TOPS</a></li>
-				<li><a href="#">JUMPSUITS</a></li>
-				<li><a href="#">LINGERIE</a></li>
-				<li><a href="#">JEANS</a></li>
-				<li><a href="#">DRESSES</a></li>
-				<li><a href="#">COATS</a></li>
-				<li><a href="#">JUMPERS</a></li>
-				<li><a href="#">LEGGINGS</a></li>
-			</ul>
-			<div class="row">
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/5.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<div class="tag-sale">ON SALE</div>
-							<img src="./img/product/6.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Black and White Stripes Dress</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/7.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/8.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/9.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/10.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Black and White Stripes Dress</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/11.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6">
-					<div class="product-item">
-						<div class="pi-pic">
-							<img src="./img/product/12.jpg" alt="">
-							<div class="pi-links">
-								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-							</div>
-						</div>
-						<div class="pi-text">
-							<h6>$35,00</h6>
-							<p>Flamboyant Pink Top </p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">LOAD MORE</button>
-			</div>
-		</div>
-	</section>
+	@yield('content')
 
 	<!-- Banner section -->
 	<section class="banner-section">
@@ -542,7 +237,6 @@
     {{-- Javascript Plugins --}}
     <section>
             <!--====== Javascripts & Jquery ======-->
-            <script src="{{asset('js/app.js')}}"></script>
             <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
             <script src="{{asset('js/bootstrap.min.js')}}"></script>
             <script src="{{asset('js/jquery.slicknav.min.js')}}"></script>
@@ -550,9 +244,9 @@
             <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
             <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
             <script src="{{asset('js/jquery-ui.min.js')}}"></script>
-            <script src="{{asset('js/main.js')}}"></script>
-    </section>
-	
+			<script src="{{asset('js/main.js')}}"></script>
+			<script src="{{asset('js/app.js')}}"></script>
 
+    </section>
 	</body>
 </html>

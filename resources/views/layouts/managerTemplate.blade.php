@@ -355,6 +355,7 @@
         <div class="container-fluid">
 
           @yield('content')
+          @yield('productList')
 
         </div>
         <!-- /.container-fluid -->

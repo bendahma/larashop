@@ -26,5 +26,10 @@ class ImageSeeder extends Seeder
             'url' => 'upload/cAOT1tPmnBpMl3QVriun9CeTzZzYG30yseKvOWwv.jpeg',
             'category_id' => 3,
         ]);
+        DB::table('images')->insert([
+            'id' => 4,
+            'url' => 'upload/cAOT1tPmnBpMl3QVriun9CeTzZzYG30yseKvOWwv.jpeg',
+            'category_id' => 4,
+        ]);
     }
 }

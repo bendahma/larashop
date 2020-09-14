@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
+use App\Image;
 use Illuminate\Http\Request;
+use App\Http\Requests\Product\ProductRequest;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -14,7 +18,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+        $products = Product::all();
+        $categories = Category::all();
+        return view('backoffice.product.index')
+                ->with('products',$products)
+                ->with('category',$categories);
     }
 
     /**
@@ -24,62 +32,133 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backoffice.product.add');
+
+        $categories = Category::all();
+
+        if($categories->isEmpty()){
+            Alert::warning('Add Category Befor Adding Any Product');
+            return redirect(route('category.create'));
+        } 
+
+        return view('backoffice.product.add')->with('categories',$categories);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    
+    public function store(ProductRequest $request)
     {
-        //
+        
+        $mainImage = $request->mainImage->store('upload');
+
+        $product = Product::create([
+            'name' => $request->name,
+            'details' => $request->details ,
+            'description' => $request->description ,
+            'price' => $request->price,
+            'mark' => $request->mark ,
+            'like' => 0 ,
+            'vue' => 0 ,
+            'category_id' => $request->category,
+        ]);
+
+        $image = Image::create([
+            'url' => $mainImage,
+            'product_id' => $product->id,
+            'productMainImage' => true,
+        ]);
+
+        Alert::success('New Product', 'New Product Added successfully');
+
+        return redirect(route('product.index'));
+
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function show(Product $product)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::withTrashed()->where('id',$id)->first();
+        $categories = Category::all();
+
+        return view('backoffice.product.add')
+                ->with('product',$product)
+                ->with('categories',$categories);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::withTrashed()->where('id',$id)->first();
+
+        if($request->has('mainImage')){
+            $mainImage = $request->mainImage->store('upload');
+            $oldMainImage = Image::where('url',$product->mainImageUrl($product->id))->first();
+            $oldMainImage->update([
+                'productMainImage' => false,
+            ]);
+            $newMainImage = Image::create([
+                'url' => $mainImage,
+                'product_id' => $product->id,
+                'productMainImage' => true,
+            ]);
+            $product->update([
+                'name' => $request->name,
+                'details' => $request->details ,
+                'description' => $request->description ,
+                'price' => $request->price,
+                'mark' => $request->mark ,
+                'category_id' => $request->category,
+            ]);
+        }else{
+            $product->update([
+                'name' => $request->name,
+                'details' => $request->details ,
+                'description' => $request->description ,
+                'price' => $request->price,
+                'mark' => $request->mark ,
+                'category_id' => $request->category,
+            ]);
+        }
+
+        Alert::success('Product updated successfully','');
+
+        return redirect(route('product.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
+    public function Remove(Product $product){
+        $product->delete();
+        Alert::success('Prodect removed successfully','');
+        return back();
+    }
+
+    public function Removed(){
+        $products = Product::onlyTrashed()->get();
+        $categories = Category::all();
+        return view('backoffice.product.removed')
+                ->with('products',$products)
+                ->with('category',$categories);
+    }
+
+    public function Restore($id){
+        $product = Product::withTrashed()->where('id',$id)->restore();
+        $products = Product::all();
+        $categories = Category::all();
+        Alert::success('Product restored successfully','Now the Product will be visible for your client');
+        return view('backoffice.product.index')
+                ->with('products',$products)
+                ->with('category',$categories);
+    }
+
+    public function Delete($id){
+        $product = Product::withTrashed()->where('id',$id)->forceDelete();
+        $products = Product::all();
+        $categories = Category::all();
+        Alert::success('Product Deleted Successfully','');
+        return view('backoffice.product.index')
+                ->with('products',$products)
+                ->with('category',$categories);
+        
     }
 }

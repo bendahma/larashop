@@ -20,6 +20,7 @@ class CreateImagesTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->boolean('productMainImage')->default(0);
             $table->timestamps();
         });
     }
