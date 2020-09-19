@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SiteController@index')->name('site');
+Route::get('/browse/product/{product}', 'SiteController@GetProduct')->name('site.singleProduct');
 
 Auth::routes();
 

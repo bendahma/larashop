@@ -40,9 +40,15 @@
       <hr class="sidebar-divider my-0">
 
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('dashboard')}}">
+        <a class="nav-link" href="{{route('dashboard')}}" >
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/')}}" target="_blank">
+          <i class="fas fa-home"></i>
+          <span>Larashop</span></a>
       </li>
 
       <!-- Divider -->

@@ -67,7 +67,10 @@
 									</a>
 	
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-										<a href="" class="dropdown-item" >Profile</a>
+										<a href=" {{route('dashboard')}} " class="dropdown-item" target="_blank">
+											<span ><i class="fas fa-address-card" style="font-size: 0.9rem"></i></span>
+											Profile
+										</a>
 										<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
 											<span ><i class="fas fa-sign-out-alt" style="font-size: 0.9rem"></i></span> {{ __('Logout') }}
 										</a>

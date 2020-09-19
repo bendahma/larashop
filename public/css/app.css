@@ -18678,3 +18678,8 @@ select:focus ,
   
 
 }
+
+.input-group-text{
+  background-color:rgb(255, 253, 253);
+  border:none;
+}

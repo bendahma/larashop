@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('details')->nullable();
             $table->text('description')->nullable();
             $table->float('price',8,2);
-            $table->string('mark')->nullable();
+            // $table->string('mark')->nullable();
             $table->bigInteger('like')->nullable();
             $table->bigInteger('vue')->nullable();
             $table->unsignedBigInteger('category_id');

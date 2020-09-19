@@ -819,15 +819,15 @@ ol {
   text-align: right;
 }
 
-.product-item .pi-links a {
+.product-item .pi-links button {
   display: inline-table;
   width: 36px;
   height: 36px;
-  background: #fff;
+  background: rgb(255, 255, 255);
   border-radius: 60px;
   font-size: 18px;
   line-height: 18px;
-  padding-top: 9px;
+  padding-top: 10px;
   overflow: hidden;
   color: #000;
   position: relative;
@@ -836,16 +836,16 @@ ol {
   text-align: center;
 }
 
-.product-item .pi-links a i {
+.product-item .pi-links button i {
   display: inline-block;
   color: #000;
 }
 
-.product-item .pi-links a.add-card {
+.product-item .pi-links button.add-card {
   padding-top: 8px;
 }
 
-.product-item .pi-links a.add-card span {
+.product-item .pi-links button.add-card span {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -855,13 +855,13 @@ ol {
   opacity: 0;
 }
 
-.product-item .pi-links a.add-card:hover {
+.product-item .pi-links button.add-card:hover {
   width: 148px;
   padding: 8px 18px 0;
   text-align: left;
 }
 
-.product-item .pi-links a.add-card:hover span {
+.product-item .pi-links button.add-card:hover span {
   opacity: 1;
   top: 10px;
   transition: all 0.4s ease 0.3s;
@@ -1489,7 +1489,7 @@ ol {
 }
 
 .product-details .p-title {
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 700;
   color: #414141;
   text-transform: uppercase;

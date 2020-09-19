@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Category;
 use App\Image;
+use App\Characteristic;
+use App\Color;
 
 class Product extends Model
 {
@@ -25,6 +27,14 @@ class Product extends Model
     public function mainImageUrl($id){
         $image = Image::where('product_id',$id)->where('productMainImage',true)->first();
         return $image->url;
+    }
+
+    public function characteristic(){
+        return $this->hasOne(Characteristic::class);
+    }
+
+    public function colors(){
+        return $this->belongsToMany(Color::class,'color_product');
     }
 
 }
