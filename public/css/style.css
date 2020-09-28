@@ -319,13 +319,9 @@ ol {
   color: #f51167;
 }
 
-.accordion-area .panel-body img {
-  margin-bottom: 25px;
-}
-
-.accordion-area .panel-body h4 {
+.accordion-area .panel-body ul li{
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 /*------------------
@@ -396,10 +392,11 @@ ol {
   top: -4px;
   left: 100%;
   height: 16px;
-  min-width: 16px;
-  color: #fff;
-  font-size: 13px;
-  background: #f51167;
+  min-width: 1rem;
+  color: darkred;
+  font-size: 0.9rem;
+  font-weight: 700;
+  /* background: #f51167; */
   text-align: center;
   border-radius: 30px;
   padding: 0 2px;
@@ -823,11 +820,11 @@ ol {
   display: inline-table;
   width: 36px;
   height: 36px;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255,0.9);
   border-radius: 60px;
-  font-size: 18px;
+  font-size: 26px;
   line-height: 18px;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   overflow: hidden;
   color: #000;
   position: relative;
@@ -842,7 +839,7 @@ ol {
 }
 
 .product-item .pi-links button.add-card {
-  padding-top: 8px;
+  /* padding-top: 8px; */
 }
 
 .product-item .pi-links button.add-card span {
@@ -857,7 +854,7 @@ ol {
 
 .product-item .pi-links button.add-card:hover {
   width: 148px;
-  padding: 8px 18px 0;
+  padding: 0px 18px 0;
   text-align: left;
 }
 

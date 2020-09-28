@@ -2,6 +2,8 @@
 <html lang="zxx">
 <head>
 	<title>Larashop</title>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="Larashop, Laravel, eShop, eCommerce">
@@ -25,6 +27,8 @@
 	<link rel="stylesheet" href="{{asset('css/style.css')}}"/>
 	<link rel="stylesheet" href="{{asset('css/fontawsome.css')}}"/>
 
+	<!-- SweetAlert2 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
 
 	
 
@@ -42,7 +46,7 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="./index.html" class="site-logo">
+						<a href="/" class="site-logo">
 							<img src="img/logo.png" alt="">
 						</a>
 					</div>
@@ -88,9 +92,9 @@
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="fas fa-shopping-cart mr-2" style="font-size: 1.1rem"></i>
-									<span class="mr-3" style="font-size: 0.6rem">0</span>
+									<span class="mr-3"> {{$cardItemsCount}} </span>
 								</div>
-								<a href="#" class="ml-2">Shopping Cart</a>
+								<a href="{{route('card.index')}}" class="ml-2">Panier</a>
 							</div>
 						</div>
 					</div>
@@ -101,9 +105,20 @@
 			<div class="container">
 				<!-- menu -->
 				<ul class="main-menu">
+					<li>
+						<a href="/"><i class="fas fa-home" style="font-size: 1inderem;color:inheret"></i>
+							Accueil
+						</a>
+					</li>
 					@foreach ($categories as $category)
 					<li>
-						<a href="#">{{$category->name}} @if($category->new == 1) <span class="new">New</span> @endif</a>
+						<a href="#">
+							<i class="fab fa-apple" style="font-size: 1inderem;color:inheret"></i>
+							{{$category->name}} 
+							@if($category->new == 1) 
+								<span class="new">New</span> 
+							@endif
+						</a>
 					</li>
 					
 					@endforeach
@@ -249,7 +264,11 @@
             <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 			<script src="{{asset('js/main.js')}}"></script>
 			<script src="{{asset('js/app.js')}}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+
+			<script src="{{asset('js/custom.js')}}"></script>
 
     </section>
 	</body>
 </html>
+

@@ -67,7 +67,7 @@
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
-								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">information</button>
+								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Description</button>
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
@@ -77,16 +77,18 @@
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingTwo">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Configuration </button>
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-								<div class="panel-body">
-									<img src="./img/cards.png" alt="">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+								<div class="panel-body ">
+									<ul>
+										<li> Date sorie {{ $product->characteristic->ReleasedDate }} </li>
+										<li> Network {{ $product->characteristic->Network }} </li>
+									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="panel">
+						{{-- <div class="panel">
 							<div class="panel-header" id="headingThree">
 								<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
 							</div>
@@ -97,7 +99,7 @@
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te mpus. Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
 								</div>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 					<div class="social-sharing">
 						<a href=""><i class="fa fa-google-plus"></i></a>

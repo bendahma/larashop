@@ -20,13 +20,16 @@ Route::middleware(['auth'])->group(function(){
         });
     });
 
-
     // Resource Routes
     Route::prefix('backoffice')->group(function(){
         Route::resource('/category','CategoryController');
         Route::resource('/product','ProductController');
     });
+
+    Route::post('/card/addToCart/{id}','CardController@addToCart');
+    Route::resource('/card','CardController');
     
 
 });
 
+Route::post('/like/{id}','likeProductController');

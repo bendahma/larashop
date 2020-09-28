@@ -91,10 +91,13 @@
                         <a href="{{route('site.singleProduct',$latest->id)}}">
                             <div class="pi-pic">
                                 <img src="/storage/{{$latest->mainImageUrl($latest->id)}}" alt="" height="250vh"  style="object-fit:contain">
-                                <div class="pi-links">
-                                    <button class="add-card"><i class="fas fa-shopping-bag"></i><span>ADD TO CART</span></button>
-                                    <button class="wishlist-btn"><i class="fas fa-heart text-danger"></i></button>
-                                </div>
+                        </a>        
+                        <div class="pi-links">
+                            <button class="add-card" onclick="addToCart({{$latest->id}})"><i class="fas fa-shopping-bag"></i><span>ADD TO CART</span></button>
+                            <button class="wishlist-btn" onclick="likeProduct({{$latest->id}})">
+                                <i class="far fa-heart text-danger likee"></i></button>
+                        </div>
+                        <a href="{{route('site.singleProduct',$latest->id)}}">        
                             </div>
                             <div class="pi-text">
                                     <h6>{{$latest->price}}</h6>
@@ -131,17 +134,21 @@
                         <div class="product-item">
                             <div class="pi-pic">
                                 <img src="/storage/{{$product->mainImageUrl($product->id)}}" alt="" height="250vh"  style="object-fit:contain">
+                    </a>
+                    
                                 <div class="pi-links">
-                                    <button class="add-card"><i class="fas fa-shopping-bag"></i><span>ADD TO CART</span></button>
-                                    <button class=""><i class="fas fa-heart text-danger" ></i></button>
+                                    <button class="add-card" onclick="addToCart({{$product->id}})"><i class="fas fa-shopping-bag"></i><span>ADD TO CART</span></button>
+                                    <button class="wishlist-btn" onclick="likeProduct({{$product->id}})"><i class="far fa-heart text-danger likee" ></i></button>
                                 </div>
                             </div>
+                    <a href=" {{route('site.singleProduct',$product->id)}} ">
+
                             <div class="pi-text px-2">
                                     <h6>{{$product->price}} DZD</h6>
                                     <p>{{$product->name}}</p>
                             </div>
                         </div>
-                 </a>
+                     </a>
 
                 </div>
                 @endforeach
