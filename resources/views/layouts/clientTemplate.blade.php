@@ -92,7 +92,7 @@
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="fas fa-shopping-cart mr-2" style="font-size: 1.1rem"></i>
-									<span class="mr-3"> {{$cardItemsCount}} </span>
+									<span class="mr-3"> {{$cardItemsCount ?? 0}} </span>
 								</div>
 								<a href="{{route('card.index')}}" class="ml-2">Panier</a>
 							</div>
@@ -265,8 +265,7 @@
 			<script src="{{asset('js/main.js')}}"></script>
 			<script src="{{asset('js/app.js')}}"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
-
-			<script src="{{asset('js/custom.js')}}"></script>
+			@yield('scripts')
 
     </section>
 	</body>

@@ -12,9 +12,21 @@ class CardController extends Controller
 {
     public function index(){
         $categories = Category::orderBy('order','ASC')->get();
+        $user = Auth::user();
+
+        $cardItems = Card::with('product')->where('user_id',$user->id)->where('completed',false)->get();
+        $product = New Product();
+        $totalCartPrice = 0;
+        foreach ($cardItems as $item) {
+            $totalCartPrice += $item->product->price; 
+        }
 
         return view('card')
-                    ->with('categories',$categories);
+                    ->with('categories',$categories)
+                    ->with('items',$cardItems)
+                    ->with('product',$product)
+                    ->with('totalPrice',$totalCartPrice);
+
     }
 
 
@@ -49,6 +61,9 @@ class CardController extends Controller
         ]);
     }
 
-    
+    public function destroy(Card $card){
+        $card->delete();
+        return redirect(route('card.index'));
+    }    
 
 }

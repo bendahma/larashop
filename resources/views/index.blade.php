@@ -159,3 +159,56 @@
         </div>
     </section>
 @endsection
+
+@section('scripts')
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            likeProduct(id);
+            addToCart(id);
+        });
+
+        function likeProduct(id){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN':$("meta[name='csrf-token']").attr('content')
+                }
+            });
+
+            $.ajax({
+                url:"/like/" + id,
+                method:"POST",
+                data: "",
+                success:function(){
+                    $(".likee").click(function(){
+                        $(this).removeClass("far fa-heart").addClass("fas fa-heart");
+                    });
+                }
+            });
+
+            
+        }
+
+        function addToCart(id){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN':$("meta[name='csrf-token']").attr('content')
+                }
+            });
+            $.ajax({
+                url:"/card/addToCart/" + id,
+                method:"POST",
+                success: function(response) {
+                    swal(
+                    response.message,
+                    "",
+                    response.success,
+                    )
+                },
+            });
+
+            
+        }
+    </script>
+    
+@endsection

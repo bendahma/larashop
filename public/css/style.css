@@ -1782,7 +1782,7 @@ ol {
 }
 
 .cart-table .total-cost {
-  background: #f51167;
+  background: rgb(177, 167, 167);
   margin: 0 -34px;
   text-align: right;
   padding: 22px 0;

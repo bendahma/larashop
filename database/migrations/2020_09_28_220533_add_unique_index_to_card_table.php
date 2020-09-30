@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class AddUniqueIndexToCardTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->date('OrderDate');
-            $table->boolean('orderComplet')->default(false);
-            $table->timestamps();
+        Schema::table('cards', function (Blueprint $table) {
+            $table->unique('user_id','product_id');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::table('cards', function (Blueprint $table) {
+            //
+        });
     }
 }

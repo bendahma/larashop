@@ -18,8 +18,12 @@ class SiteController extends Controller
         $products = Product::orderBy('created_at','DESC')->get();
         $latestProducts = Product::orderBy('created_at','DESC')->limit(8)->get();
 
-        $card = Card::where('user_id',Auth::user()->id)->get();
-        $cardItemsCount = $card->count();
+        $cardItemsCount = 0;
+
+        if(Auth::user()){
+            $card = Card::where('user_id',Auth::user()->id)->get();
+            $cardItemsCount = $card->count();
+        }
 
         return view('index')
                     ->with('categories',$categories)

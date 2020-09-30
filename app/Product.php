@@ -9,6 +9,7 @@ use App\Category;
 use App\Image;
 use App\Characteristic;
 use App\Color;
+use App\Card;
 
 class Product extends Model
 {
@@ -35,6 +36,10 @@ class Product extends Model
 
     public function colors(){
         return $this->belongsToMany(Color::class,'color_product');
+    }
+
+    public function card(){
+        return $this->hasMany(Card::class);
     }
 
 }
