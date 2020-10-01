@@ -14,7 +14,7 @@ class SiteController extends Controller
 {
     public function index(){
 
-        $categories = Category::orderBy('order','ASC')->get();
+        $categories = Category::orderBy('order','ASC')->limit(6)->get();
         $products = Product::orderBy('created_at','DESC')->get();
         $latestProducts = Product::orderBy('created_at','DESC')->limit(8)->get();
 
@@ -36,9 +36,19 @@ class SiteController extends Controller
         $categories = Category::orderBy('order','ASC')->get();
         $characteristic = Characteristic::all();
         $pro = Product::with('characteristic')->where('id',$product->id)->first();
+
+        $cardItemsCount = 0;
+
+        if(Auth::user()){
+            $card = Card::where('user_id',Auth::user()->id)->get();
+            $cardItemsCount = $card->count();
+        }
+
         return view('products.singleProduct')
                         ->with('categories',$categories)
                         ->with('product',$product)
-                        ->with('characteristic',$characteristic);
+                        ->with('characteristic',$characteristic)
+                        ->with('cardItemsCount',$cardItemsCount);
+
     }
 }

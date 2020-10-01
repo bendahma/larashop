@@ -52,16 +52,16 @@
 					</div>
 					<div class="col-xl-6 col-lg-5">
 						<form class="header-search-form">
-							<input type="text" placeholder="Search on LaraShop ....">
-							<button> <span style="color:lightgray"><i class="fas fa-search mr-2"></i></span> </button>
+							<input type="text" placeholder="Recherche un produit ....">
+							<button> <span style="color:lightgray;font-size:1rem"><i class="fas fa-search mr-2"></i></span> </button>
 						</form>
 					</div>
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
 							@guest
-								<div class="up-item">
-									<i class="flaticon-profile"></i>
-									<a href="{{route('login')}}">Sign</a> In or <a href="{{route('register')}}">Create Account</a>
+								<div class="up-item my-auto">
+									
+									<a href="{{route('login')}}" class="my-auto"><i class="far fa-user-circle mr-1 mt-1" style="font-size: 1.1rem"></i> Se connecté</a> ou <a href="{{route('register')}}">S'inscrire</a>
 								</div>
 							@else
 							<div class="up-item">
@@ -90,11 +90,14 @@
 							@endguest
 							
 							<div class="up-item">
-								<div class="shopping-card">
-									<i class="fas fa-shopping-cart mr-2" style="font-size: 1.1rem"></i>
-									<span class="mr-3"> {{$cardItemsCount ?? 0}} </span>
-								</div>
-								<a href="{{route('card.index')}}" class="ml-2">Panier</a>
+								
+								<a href="{{route('card.index')}}" class="ml-2">
+									<div class="shopping-card mr-2">
+										<i class="fas fa-shopping-cart mr-2" style="font-size: 1.1rem"></i>
+										<span class="mr-3"> 
+											
+											{{$cardItemsCount}} </span>
+									</div>Panier</a>
 							</div>
 						</div>
 					</div>
@@ -122,7 +125,11 @@
 					</li>
 					
 					@endforeach
-					
+					<li class="text-danger">
+						<a href="/contact"><i class="far fa-comments" style="font-size: 1inderem;color:inheret"></i>
+							Contact
+						</a>
+					</li>
 					{{-- Sub-menu --}}
 					{{-- <li><a href="#">Pages</a>
 						<ul class="sub-menu">
@@ -157,7 +164,7 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="./img/logo-light.png" alt=""></a>
+				<a href="index.html"><img src="" alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">

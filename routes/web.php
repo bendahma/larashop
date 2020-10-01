@@ -28,6 +28,13 @@ Route::middleware(['auth'])->group(function(){
 
     Route::post('/card/addToCart/{id}','CardController@addToCart');
     Route::resource('/card','CardController');
+
+    Route::prefix('order')->group(function(){
+        Route::name('order.')->group(function(){
+            Route::get('/sendOrder','OrderController@sendOrder')->name('sendOrder');
+        });
+        Route::resource('/','OrderController');
+    });
     
 
 });

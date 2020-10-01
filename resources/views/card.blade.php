@@ -76,8 +76,8 @@
 						<input type="text" placeholder="Entre code de promotion">
 						<button>Submit</button>
 					</form>
-					<a href="" class="site-btn">Acheté Maintenant</a>
-					<a href="/" class="site-btn sb-dark">Contenue Shopping</a>
+					<a href="{{ route('order.sendOrder') }}" class="site-btn">Commande Maintenant</a>
+					<a href="{{url('/')}}" class="site-btn sb-dark">Contenue Shopping</a>
 				</div>
 			</div>
 		</div>

@@ -11,7 +11,7 @@ use App\Card;
 class CardController extends Controller
 {
     public function index(){
-        $categories = Category::orderBy('order','ASC')->get();
+        $categories = Category::orderBy('order','ASC')->limit(6)->get();
         $user = Auth::user();
 
         $cardItems = Card::with('product')->where('user_id',$user->id)->where('completed',false)->get();
@@ -20,11 +20,18 @@ class CardController extends Controller
         foreach ($cardItems as $item) {
             $totalCartPrice += $item->product->price; 
         }
+        $cardItemsCount = 0;
+
+        if(Auth::user()){
+            $card = Card::where('user_id',Auth::user()->id)->get();
+            $cardItemsCount = $card->count();
+        }
 
         return view('card')
                     ->with('categories',$categories)
                     ->with('items',$cardItems)
                     ->with('product',$product)
+                    ->with('cardItemsCount',$cardItemsCount)
                     ->with('totalPrice',$totalCartPrice);
 
     }
