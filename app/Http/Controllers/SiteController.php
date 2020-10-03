@@ -15,13 +15,13 @@ class SiteController extends Controller
     public function index(){
 
         $categories = Category::orderBy('order','ASC')->limit(6)->get();
-        $products = Product::orderBy('created_at','DESC')->get();
+        $products = Product::orderBy('created_at','DESC')->paginate(16);
         $latestProducts = Product::orderBy('created_at','DESC')->limit(8)->get();
 
         $cardItemsCount = 0;
 
         if(Auth::user()){
-            $card = Card::where('user_id',Auth::user()->id)->get();
+            $card = Card::where('user_id',Auth::user()->id)->where('completed',false)->get();
             $cardItemsCount = $card->count();
         }
 
@@ -33,14 +33,14 @@ class SiteController extends Controller
     }
 
     public function GetProduct(Product $product){
-        $categories = Category::orderBy('order','ASC')->get();
+        $categories = Category::orderBy('order','ASC')->limit(6)->get();
         $characteristic = Characteristic::all();
         $pro = Product::with('characteristic')->where('id',$product->id)->first();
 
         $cardItemsCount = 0;
 
         if(Auth::user()){
-            $card = Card::where('user_id',Auth::user()->id)->get();
+            $card = Card::where('user_id',Auth::user()->id)->where('completed',false)->get();
             $cardItemsCount = $card->count();
         }
 
@@ -50,5 +50,35 @@ class SiteController extends Controller
                         ->with('characteristic',$characteristic)
                         ->with('cardItemsCount',$cardItemsCount);
 
+    }
+
+    public function GetProductByMark($mark){
+
+        $categories = Category::orderBy('order','ASC')->limit(6)->get();
+
+        $cardItemsCount = 0;
+
+        if(Auth::user()){
+            $card = Card::where('user_id',Auth::user()->id)->where('completed',false)->get();
+            $cardItemsCount = $card->count();
+        }
+
+
+        $products = Product::whereHas('category',function($query)use($mark){
+            $query->where('name',$mark);
+        })->paginate(15);
+
+        return view('mark')->with('products',$products)
+                            ->with('categories',$categories)
+                            ->with('cardItemsCount',$cardItemsCount)
+                            ->with('mark',$mark);
+
+    }
+
+    public function Contact(){
+
+        $categories = Category::orderBy('order','ASC')->limit(6)->get();
+
+        return view('contact')->with('categories',$categories);
     }
 }

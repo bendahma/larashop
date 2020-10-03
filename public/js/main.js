@@ -223,3 +223,20 @@ $(window).on('load', function() {
 
 
 })(jQuery);
+
+
+$('document').ready(function(){
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN':$("meta[name='csrf-token']").attr('content')
+		}
+	});
+	$.ajax({
+		url:"/card/countItem",
+		method:"GET",
+		data: "",
+		success:function(response){
+			document.getElementById('cardItemCount').innerHTML = response.cardItemsCount;
+		}
+	});
+});

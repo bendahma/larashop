@@ -34,6 +34,7 @@
 
 </head>
 <body>
+	@include('sweetalert::alert')
 	<!-- Page Preloder -->
 	{{-- <div id="preloder">
 		<div class="loader"></div>
@@ -47,7 +48,7 @@
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
 						<a href="/" class="site-logo">
-							<img src="img/logo.png" alt="">
+							<img src="" alt="">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
@@ -94,9 +95,7 @@
 								<a href="{{route('card.index')}}" class="ml-2">
 									<div class="shopping-card mr-2">
 										<i class="fas fa-shopping-cart mr-2" style="font-size: 1.1rem"></i>
-										<span class="mr-3"> 
-											
-											{{$cardItemsCount}} </span>
+										<span class="mr-3" id="cardItemCount">  </span>
 									</div>Panier</a>
 							</div>
 						</div>
@@ -115,7 +114,7 @@
 					</li>
 					@foreach ($categories as $category)
 					<li>
-						<a href="#">
+						<a href="{{route('site.GetProductByMark',$category->name)}}">
 							<i class="fab fa-apple" style="font-size: 1inderem;color:inheret"></i>
 							{{$category->name}} 
 							@if($category->new == 1) 
@@ -149,16 +148,16 @@
 	@yield('content')
 
 	<!-- Banner section -->
-	<section class="banner-section">
+	{{-- <section class="banner-section">
 		<div class="container">
-			<div class="banner set-bg" data-setbg="img/banner-bg.jpg">
+			<div class="banner set-bg" data-setbg="">
 				<div class="tag-new">NEW</div>
 				<span>New Arrivals</span>
 				<h2>STRIPED SHIRTS</h2>
 				<a href="#" class="site-btn">SHOP NOW</a>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 
 	<!-- Footer section -->
 	<section class="footer-section">
@@ -171,7 +170,7 @@
 					<div class="footer-widget about-widget">
 						<h2>About</h2>
 						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
-						<img src="img/cards.png" alt="">
+						<img src="" alt="">
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -199,7 +198,7 @@
 						<h2>Questions</h2>
 						<div class="fw-latest-post-widget">
 							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/1.jpg"></div>
+								<div class="lp-thumb set-bg" data-setbg=""></div>
 								<div class="lp-content">
 									<h6>what shoes to wear</h6>
 									<span>Oct 21, 2018</span>
@@ -207,7 +206,7 @@
 								</div>
 							</div>
 							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/2.jpg"></div>
+								<div class="lp-thumb set-bg" data-setbg=""></div>
 								<div class="lp-content">
 									<h6>trends this year</h6>
 									<span>Oct 21, 2018</span>
@@ -273,7 +272,7 @@
 			<script src="{{asset('js/app.js')}}"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 			@yield('scripts')
-
+			
     </section>
 	</body>
 </html>

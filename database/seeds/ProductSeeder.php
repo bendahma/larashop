@@ -29,36 +29,46 @@ class ProductSeeder extends Seeder
             'color' => 'gray',
         ]);
 
-        DB::table('products')->insert([
-            'id' => 1,
-            'name' => 'Samsung Galaxy S10+',
-            'price' => '145000.00',
-            'category_id' => '1',
-        ]);
-        DB::table('products')->insert([
-            'id' => 2,
-            'name' => 'iPhone X',
-            'price' => '160000.00',
-            'category_id' => '2',
-        ]);
-        DB::table('products')->insert([
-            'id' => 3,
-            'name' => 'OPPO F11 PRO',
-            'price' => '60000.00',
-            'category_id' => '4',
-        ]);
-        DB::table('products')->insert([
-            'id' => 4,
-            'name' => 'Huawei Y9 (2019)',
-            'price' => '40000.00',
-            'category_id' => '3',
-        ]);
-        DB::table('products')->insert([
-            'id' => 5,
-            'name' => 'Huawei P40 Pro (2020)',
-            'price' => '200000.00',
-            'category_id' => '3',
-        ]);
+        // DB::table('products')->insert([
+        //     'id' => 1,
+        //     'name' => 'Samsung Galaxy S10+',
+        //     'price' => '145000.00',
+        //     'category_id' => '1',
+        // ]);
+        // DB::table('products')->insert([
+        //     'id' => 2,
+        //     'name' => 'iPhone X',
+        //     'price' => '160000.00',
+        //     'category_id' => '2',
+        // ]);
+        // DB::table('products')->insert([
+        //     'id' => 3,
+        //     'name' => 'OPPO F11 PRO',
+        //     'price' => '60000.00',
+        //     'category_id' => '4',
+        // ]);
+        // DB::table('products')->insert([
+        //     'id' => 4,
+        //     'name' => 'Huawei Y9 (2019)',
+        //     'price' => '40000.00',
+        //     'category_id' => '3',
+        // ]);
+        // DB::table('products')->insert([
+        //     'id' => 5,
+        //     'name' => 'Huawei P40 Pro (2020)',
+        //     'price' => '200000.00',
+        //     'category_id' => '3',
+        // ]);
+
+
+        for ($i=1; $i <= 100; $i++) { 
+            DB::table('products')->insert([
+                'name' => 'Phone ',
+                'price' => '200000.00',
+                'category_id' => '1',
+            ]);
+    
+        }
 
         foreach (Product::all() as $p) {
             $colors = Color::find([1,2,3,4,5]);

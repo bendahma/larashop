@@ -110,7 +110,7 @@
             <a class="collapse-item" href="">New Orders</a>
             <a class="collapse-item" href="">Uncompleted Orders</a>
             <a class="collapse-item" href="">Completed Orders</a>
-            <a class="collapse-item" href="">All Orders</a>
+            <a class="collapse-item" href=" {{route('order.index')}} ">All Orders</a>
             
           </div>
         </div>

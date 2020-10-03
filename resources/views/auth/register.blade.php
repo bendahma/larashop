@@ -213,16 +213,6 @@
         </div>
         
         <input type="hidden" name="role" value="client">
-        
-        <div class="form-group flexbox py-10">
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">Remember me</span>
-          </label>
-
-          <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
-        </div>
 
         <div class="form-group">
           <button class="btn btn-bold btn-block btn-success text-dark" style="font-size:0.9rem" type="submit">Register</button>

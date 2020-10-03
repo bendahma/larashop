@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Client;
 use App\Manager;
+use App\Order;
 
 class User extends Authenticatable
 {
@@ -50,5 +51,9 @@ class User extends Authenticatable
 
     public function admin(){
         return $this->hasOne(Manager::class);
+    }
+
+    public function orders(){
+        return $this->belongsToMany(Order::class);
     }
 }

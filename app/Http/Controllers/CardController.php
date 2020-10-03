@@ -23,7 +23,7 @@ class CardController extends Controller
         $cardItemsCount = 0;
 
         if(Auth::user()){
-            $card = Card::where('user_id',Auth::user()->id)->get();
+            $card = Card::where('user_id',Auth::user()->id)->where('completed',false)->get();
             $cardItemsCount = $card->count();
         }
 
@@ -66,6 +66,20 @@ class CardController extends Controller
             'success' => $success,
             'message' => $message,
         ]);
+    }
+
+    public function CountItem(){
+        $cardItemsCount = 0;
+
+        if(Auth::user()){
+            $card = Card::where('user_id',Auth::user()->id)->where('completed',false)->get();
+            $cardItemsCount = $card->count();
+        }
+
+        return response()->json([
+            'cardItemsCount' => $cardItemsCount,
+        ]);
+
     }
 
     public function destroy(Card $card){

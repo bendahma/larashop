@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUniqueIndexToCardTable extends Migration
+class CreateOrderUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddUniqueIndexToCardTable extends Migration
      */
     public function up()
     {
-        Schema::table('cards', function (Blueprint $table) {
-            // $table->unique('user_id','product_id');
+        Schema::create('order_user', function (Blueprint $table) {
+            $table->foreignId('order_id')->constrained();
+            $table->foreignId('user_id')->constrained();
         });
     }
 
@@ -25,7 +26,7 @@ class AddUniqueIndexToCardTable extends Migration
      */
     public function down()
     {
-        Schema::table('cards', function (Blueprint $table) {
+        Schema::table('order_user', function (Blueprint $table) {
             //
         });
     }

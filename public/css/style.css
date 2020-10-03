@@ -86,6 +86,8 @@ ol {
   Helper CSS
 -----------------------*/
 
+
+
 .section-title {
   text-align: center;
 }
@@ -93,11 +95,11 @@ ol {
 .section-title h2 {
   font-size: 36px;
 }
-
 .set-bg {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
+  object-fit:contain;
 }
 
 .spad {
@@ -139,9 +141,23 @@ ol {
   cursor: pointer;
   text-align: center;
 }
+.site-btn-white {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 167px;
+  padding: 18px 47px 14px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #000;
+  line-height: normal;
+  cursor: pointer;
+  text-align: center;
+}
+
 
 .site-btn:hover {
-  color: #fff;
+  color: rgb(189, 8, 8);
 }
 
 .site-btn.sb-white {
@@ -150,8 +166,8 @@ ol {
 }
 
 .site-btn.sb-line {
-  background: transparent;
-  color: #fff;
+  background: rgb(226, 11, 11);
+  color: white;
   box-shadow: inset 0 0 0 1px #fff;
 }
 
@@ -329,7 +345,7 @@ ol {
 ---------------------*/
 
 .header-top {
-  padding: 18px 0 14px;
+  padding: 0px 0 14px;
 }
 
 .site-logo {
@@ -500,7 +516,7 @@ ol {
 
 .hero-slider .hs-item {
   position: relative;
-  height: 700px;
+  height: 85vh;
 }
 
 .hero-slider .hs-item span {
@@ -516,13 +532,14 @@ ol {
 }
 
 .hero-slider .hs-item h2 {
-  font-size: 60px;
+  font-size: 54px;
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 10px;
   position: relative;
-  top: 50px;
+  top: 10px;
   opacity: 0;
+  width: 30vw;
 }
 
 .hero-slider .hs-item p {
@@ -536,8 +553,10 @@ ol {
 
 .hero-slider .hs-item .site-btn {
   position: relative;
-  top: 50px;
+  top: 30px;
   opacity: 0;
+  text-transform: uppercase;
+
 }
 
 .hero-slider .hs-item .sb-line {
@@ -1806,6 +1825,27 @@ ol {
   min-height: 57px;
   padding: 23px 47px 14px;
 }
+.card-right .site-btn-command {
+  margin-bottom: 14px;
+  width: 100%;
+  min-height: 57px;
+  padding: 23px 47px 14px;
+}
+
+.site-btn-command {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 200px;
+  padding: 18px 47px 14px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #000;
+  line-height: normal;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
 .promo-code-form {
   position: relative;
@@ -2454,4 +2494,9 @@ input[type=number]:focus,
 [type=tel].form-control:focus, 
 [contenteditable].form-control:focus {
   box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.flaticon-right-arrow-1, .flaticon-left-arrow-1, .owl-dot, .slide-num-holder{
+  color:black;
+  font-weight: 900;
 }

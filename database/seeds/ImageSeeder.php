@@ -51,35 +51,43 @@ class ImageSeeder extends Seeder
             'url' => '',
             'category_id' => 8,
         ]);
-        DB::table('images')->insert([
-            'id' => 9,
-            'url' => 'upload/ApO9M3NFktqZGZrT7JcCkt84gROFWlYfivpTLi4o.jpeg',
-            'product_id' => 1,
-            'productMainImage' => 1,
-        ]);
-        DB::table('images')->insert([
-            'id' => 10,
-            'url' => 'upload/5Mi3H47klXjDOqKCpYIqHXIjInUzaO8GFXJppE1q.png',
-            'product_id' => 2,
-            'productMainImage' => 1,
-        ]);
-        DB::table('images')->insert([
-            'id' => 11,
-            'url' => 'upload/Oa9rO5srw50YR1G8GUj54wYrsg37lD3c5oMX39Rw.png',
-            'product_id' => 3,
-            'productMainImage' => 1,
-        ]);
-        DB::table('images')->insert([
-            'id' => 12,
-            'url' => 'upload/XAHzs4QmTqT4r8Gvir4YHk8RanzgwFnmHtHuHflV.png',
-            'product_id' => 4,
-            'productMainImage' => 1,
-        ]);
-        DB::table('images')->insert([
-            'id' => 13,
-            'url' => 'upload/JoeHe2dZgkIZdFs1ZpcWHaGJrCjxbY17kTuilU0N.png',
-            'product_id' => 5,
-            'productMainImage' => 1,
-        ]);
+        // DB::table('images')->insert([
+        //     'id' => 9,
+        //     'url' => 'upload/ApO9M3NFktqZGZrT7JcCkt84gROFWlYfivpTLi4o.jpeg',
+        //     'product_id' => 1,
+        //     'productMainImage' => 1,
+        // ]);
+        // DB::table('images')->insert([
+        //     'id' => 10,
+        //     'url' => 'upload/5Mi3H47klXjDOqKCpYIqHXIjInUzaO8GFXJppE1q.png',
+        //     'product_id' => 2,
+        //     'productMainImage' => 1,
+        // ]);
+        // DB::table('images')->insert([
+        //     'id' => 11,
+        //     'url' => 'upload/Oa9rO5srw50YR1G8GUj54wYrsg37lD3c5oMX39Rw.png',
+        //     'product_id' => 3,
+        //     'productMainImage' => 1,
+        // ]);
+        // DB::table('images')->insert([
+        //     'id' => 12,
+        //     'url' => 'upload/XAHzs4QmTqT4r8Gvir4YHk8RanzgwFnmHtHuHflV.png',
+        //     'product_id' => 4,
+        //     'productMainImage' => 1,
+        // ]);
+        // DB::table('images')->insert([
+        //     'id' => 13,
+        //     'url' => 'upload/JoeHe2dZgkIZdFs1ZpcWHaGJrCjxbY17kTuilU0N.png',
+        //     'product_id' => 5,
+        //     'productMainImage' => 1,
+        // ]);
+
+        for ($i=1; $i <= 100; $i++) { 
+            DB::table('images')->insert([
+                    'url' => 'upload/JoeHe2dZgkIZdFs1ZpcWHaGJrCjxbY17kTuilU0N.png',
+                    'product_id' => $i,
+                    'productMainImage' => 1,
+                ]);
+        }
     }
 }

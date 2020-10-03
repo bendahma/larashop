@@ -4,15 +4,62 @@
 	<!-- Hero section -->
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
-                <div class="hs-item set-bg" data-setbg="{{asset('img/huaweiCollection.jpg')}}"></div>
-                <div class="hs-item set-bg" data-setbg="{{asset('img/phone.jpg')}}"></div>
-                <div class="hs-item set-bg" data-setbg="{{asset('img/appleCollection.jpg')}}"></div>            
+                <div class="hs-item set-bg" data-setbg=" {{asset('img/samsungCollection.jpg')}} ">
+                
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-8 text-dark">
+                                <h2 style="background-color: rgba(238, 245, 238, 0.712) ;padding:2rem 0">The Galaxy <br/> Collection</h2>
+                                <a href="{{route('site.GetProductByMark','samsung')}}" class="site-btn sb-line">découvrir</a>
+                            </div>
+                        </div>
+                        {{-- <div class="offer-card text-white">
+                            <span>from</span>
+                            <h2>$29</h2>
+                            <p>SHOP NOW</p>
+                        </div> --}}
+                    </div>
+
+                </div>
+                <div class="hs-item set-bg" data-setbg="{{asset('img/huaweiCollection.jpg')}}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-8 text-dark">
+                                <h2 style="background-color: rgba(238, 245, 238, 0.712) ;padding:2rem 0">Huawei <br/> Collection</h2>
+                                <a href="{{route('site.GetProductByMark','huawei')}}" class="site-btn sb-line">découvrir</a>
+                            </div>
+                        </div>
+                        {{-- <div class="offer-card text-white">
+                            <span>from</span>
+                            <h2>$29</h2>
+                            <p>SHOP NOW</p>
+                        </div> --}}
+                    </div>
+
+                </div>
+                <div class="hs-item set-bg" data-setbg="{{asset('img/oppoCollection.jpg')}}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-8 text-dark">
+                                <h2 style="">OPPO <br/> phones</h2>
+                                <a href="{{route('site.GetProductByMark','oppo')}}" class="site-btn sb-line">découvrir</a>
+                            </div>
+                        </div>
+                        {{-- <div class="offer-card text-white">
+                            <span>from</span>
+                            <h2>$29</h2>
+                            <p>SHOP NOW</p>
+                        </div> --}}
+                    </div>
+
+                </div>
+                {{-- <div class="hs-item set-bg" data-setbg="{{asset('img/appleCollection.jpg')}}"></div>             --}}
         </div>
         <div class="container">
             <div class="slide-num-holder" id="snh-1"></div>
         </div>
     </section>
-    <br>
+    
     <!-- Features section -->
     <section class="features-section">
         <div class="container-fluid">
@@ -66,7 +113,7 @@
                         <a href="{{route('site.singleProduct',$latest->id)}}">        
                             </div>
                             <div class="pi-text">
-                                    <h6>{{$latest->price}}</h6>
+                                    <h6>{{number_format($latest->price,2,'.',' ')}} DA</h6>
                                     <p>{{$latest->name}}</p>                            
                             </div>
                         </a>
@@ -95,32 +142,31 @@
             </ul> --}}
             <div class="row">
                 @foreach ($products as $product)
-                <div class="col-lg-3 col-sm-6 mb-3 p-2 py-4 shadow-sm" >
-                    <a href=" {{route('site.singleProduct',$product->id)}} ">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="/storage/{{$product->mainImageUrl($product->id)}}" alt="" height="250vh"  style="object-fit:contain">
-                    </a>
-                    
-                                <div class="pi-links">
-                                    <button class="add-card" onclick="addToCart({{$product->id}})"><i class="fas fa-shopping-bag"></i><span>ADD TO CART</span></button>
-                                    <button class="wishlist-btn" onclick="likeProduct({{$product->id}})"><i class="far fa-heart text-danger likee" ></i></button>
+                    <div class="col-lg-3 col-sm-6 mb-4  p-2 py-4 shadow-sm" >
+                        <a href=" {{route('site.singleProduct',$product->id)}} ">
+                            <div class="product-item">
+                                <div class="pi-pic">
+                                    <img src="/storage/{{$product->mainImageUrl($product->id)}}" alt="" height="250vh"  style="object-fit:contain">
+                        </a>
+                        
+                                    <div class="pi-links">
+                                        <button class="add-card" onclick="addToCart({{$product->id}})"><i class="fas fa-shopping-bag"></i><span>ADD TO CART</span></button>
+                                        <button class="wishlist-btn" onclick="likeProduct({{$product->id}})"><i class="far fa-heart text-danger likee" ></i></button>
+                                    </div>
+                     </div>
+                        <a href=" {{route('site.singleProduct',$product->id)}} ">
+                                <div class="pi-text px-2">
+                                        <h6>{{number_format($product->price,2,'.',' ')}} DA</h6>
+                                        <p>{{$product->name}}</p>
                                 </div>
                             </div>
-                    <a href=" {{route('site.singleProduct',$product->id)}} ">
+                        </a>
 
-                            <div class="pi-text px-2">
-                                    <h6>{{$product->price}} DZD</h6>
-                                    <p>{{$product->name}}</p>
-                            </div>
-                        </div>
-                     </a>
-
-                </div>
+                    </div>
                 @endforeach
             </div>
             <div class="text-center pt-5">
-                <button class="site-btn sb-line sb-dark">LOAD MORE</button>
+                {{ $products->links() }}
             </div>
         </div>
     </section>
@@ -130,6 +176,11 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN':$("meta[name='csrf-token']").attr('content')
+                }
+            });
             likeProduct(id);
             addToCart(id);
         });
@@ -140,7 +191,7 @@
                     'X-CSRF-TOKEN':$("meta[name='csrf-token']").attr('content')
                 }
             });
-
+            
             $.ajax({
                 url:"/like/" + id,
                 method:"POST",
@@ -171,7 +222,24 @@
                     response.success,
                     )
                 },
+                error: function (jqXHR, exception) {
+                    if (jqXHR.status === 401) {
+                        swal(
+                        "CONNECTE ou CREER UN COMPTE pour ajouté le produit au panier",
+                        "",
+                        "error"
+                        )
+                    } 
+                },
             });
+            $.ajax({
+                url:"/card/countItem",
+                method:"GET",
+                data: "",
+                success:function(response){
+                    document.getElementById('cardItemCount').innerHTML = response.cardItemsCount;
+		    }
+	});
 
             
         }

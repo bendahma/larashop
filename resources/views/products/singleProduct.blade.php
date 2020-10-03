@@ -5,17 +5,15 @@
     <div class="page-top-info">
         <div class="container">
             <div class="site-pagination">
-                <a href="">Home</a> /
-                <a href="">Product</a>
+                <a href="{{ url('/') }}">Home</a> /
+                <a href="  ">Product</a> /
+                <a href="{{route('site.singleProduct',$product->id)}}">{{$product->name}}</a> 
             </div>
         </div>
     </div>
 
     <section class="product-section">
 		<div class="container">
-			<div class="back-link">
-				<a href="/"> &lt;&lt; Back to Home</a>
-			</div>
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="">
@@ -59,9 +57,13 @@
                         <div class="pro-qty"><input type="text" value="1"></div>
 					</div>
 					<div class="d-fles">
-						<a href="#" class="site-btn  bg-success">AJOUTER AU PANIER</a>
-						
-						<a href="#" class="site-btn">ACHETER MAINTENANT</a>
+						@if(Auth::user())
+							<a href="#" class="site-btn  bg-success">AJOUTER AU PANIER</a>
+							<a href="#" class="site-btn">ACHETER MAINTENANT</a>
+						@else
+							<a href="{{route('login')}}" class="site-btn-white btn  btn-outline-success">Se connecté pour commande le produit</a>
+
+						@endif
 					</div>
 					
 					<div id="accordion" class="accordion-area">
@@ -71,7 +73,7 @@
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
-									{{ $product->description }}
+									{{-- {{ $product->description }} --}}
 								</div>
 							</div>
 						</div>
@@ -81,12 +83,14 @@
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body ">
-									<ul>
+									{{-- <ul>
 										<li> Date sorie {{ $product->characteristic->ReleasedDate }} </li>
 										<li> Network {{ $product->characteristic->Network }} </li>
-									</ul>
+									</ul> --}}
 								</div>
 							</div>
+
+							
 						</div>
 						{{-- <div class="panel">
 							<div class="panel-header" id="headingThree">
@@ -101,6 +105,9 @@
 							</div>
 						</div> --}}
 					</div>
+
+					
+
 					<div class="social-sharing">
 						<a href=""><i class="fa fa-google-plus"></i></a>
 						<a href=""><i class="fa fa-pinterest"></i></a>

@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'SiteController@index')->name('site');
-Route::get('/browse/product/{product}', 'SiteController@GetProduct')->name('site.singleProduct');
-
+// Main Routes
 Auth::routes();
+Route::get('/', 'SiteController@index')->name('site');
+Route::get('/contact','SiteController@Contact')->name('contact');
+
+// Site specific routes
+Route::get('/browse/product/{product}', 'SiteController@GetProduct')->name('site.singleProduct');
+Route::get('/browse/mark/{mark}', 'SiteController@GetProductByMark')->name('site.GetProductByMark');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -26,6 +30,7 @@ Route::middleware(['auth'])->group(function(){
         Route::resource('/product','ProductController');
     });
 
+    Route::get('/card/countItem','CardController@CountItem');
     Route::post('/card/addToCart/{id}','CardController@addToCart');
     Route::resource('/card','CardController');
 
@@ -33,9 +38,10 @@ Route::middleware(['auth'])->group(function(){
         Route::name('order.')->group(function(){
             Route::get('/sendOrder','OrderController@sendOrder')->name('sendOrder');
         });
-        Route::resource('/','OrderController');
     });
-    
+   
+    Route::resource('/order','OrderController');
+
 
 });
 

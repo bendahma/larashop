@@ -71,13 +71,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 card-right">
-					<form class="promo-code-form">
-						<input type="text" placeholder="Entre code de promotion">
-						<button>Submit</button>
-					</form>
-					<a href="{{ route('order.sendOrder') }}" class="site-btn">Commande Maintenant</a>
-					<a href="{{url('/')}}" class="site-btn sb-dark">Contenue Shopping</a>
+				<div class="col-lg-4 card-right align-self-center">
+						<a href="{{ route('order.sendOrder') }}" class="site-btn-command btn  btn-outline-success">Commande Maintenant</a>
+						<a href="{{url('/')}}" class="site-btn-command btn  btn-outline-secondary">Contenue Shopping</a>
 				</div>
 			</div>
 		</div>

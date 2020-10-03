@@ -114,17 +114,17 @@
             <span class="custom-control-description">Remember me</span>
           </label>
 
-          <a class="text-muted hover-primary fs-13" href="#">Forgot password?</a>
+          <a class="text-muted hover-primary fs-13" href="#">Mote de passe oublie?</a>
         </div>
 
         <div class="form-group">
-          <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
+          <button class="btn btn-bold btn-block btn-primary" type="submit">Se connecté</button>
         </div>
       </form>
 
       
 
-      <p class="text-center text-muted fs-13 mt-20">Don't have an account? <a href="{{route('register')}}">Sign Up</a></p>
+      <p class="text-center text-muted fs-13 mt-20">Vous n'avez pas un compte? <a href="{{route('register')}}" class="btn btn-outline-success">S'inscrire</a></p>
     </div>
 
 @endsection
