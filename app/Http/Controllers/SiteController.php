@@ -10,8 +10,7 @@ use App\Category;
 use App\Characteristic;
 use App\Card;
 
-class SiteController extends Controller
-{
+class SiteController extends Controller {
     public function index(){
 
         $categories = Category::orderBy('order','ASC')->limit(6)->get();
@@ -73,6 +72,28 @@ class SiteController extends Controller
                             ->with('cardItemsCount',$cardItemsCount)
                             ->with('mark',$mark);
 
+    }
+
+    public function searchProduct (Request $request){
+
+        $categories = Category::orderBy('order','ASC')->limit(6)->get();
+
+        $cardItemsCount = 0;
+
+        if(Auth::user()){
+            $card = Card::where('user_id',Auth::user()->id)->where('completed',false)->get();
+            $cardItemsCount = $card->count();
+        }
+
+        $products = Product::where('name','LIKE','%' . $request->product . '%')
+                            ->orWhere('description','LIKE','%' . $request->product . '%')
+                            ->paginate(15);
+
+        return  $products->count() == 0 ? abort(404) 
+                                        : view('mark')->with('products',$products)
+                                                    ->with('categories',$categories)
+                                                    ->with('cardItemsCount',$cardItemsCount)
+                                                    ->with('mark',$request->product);
     }
 
     public function Contact(){

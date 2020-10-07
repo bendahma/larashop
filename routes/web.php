@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Main Routes
 Auth::routes();
 Route::get('/', 'SiteController@index')->name('site');
+Route::get('/search/', 'SiteController@searchProduct')->name('search');
 Route::get('/contact','SiteController@Contact')->name('contact');
 
 // Site specific routes

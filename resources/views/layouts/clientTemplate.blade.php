@@ -52,8 +52,8 @@
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
-						<form class="header-search-form">
-							<input type="text" placeholder="Recherche un produit ....">
+						<form class="header-search-form" method="GET" action=" {{ route('search') }} ">
+							<input type="text" placeholder="Recherche un produit ...." name="product">
 							<button> <span style="color:lightgray;font-size:1rem"><i class="fas fa-search mr-2"></i></span> </button>
 						</form>
 					</div>
