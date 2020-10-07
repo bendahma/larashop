@@ -6,8 +6,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>Login</title>
-
+    @yield('pageTitle')
+    
     <!-- Styles -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">

@@ -73,7 +73,9 @@
 @endsection --}}
 
 @extends('layouts.AuthTemplate')
-
+@section('pageTitle')
+<title>Larashop - Se connecté</title>
+@endsection
 @section('content')
 
     <div class="card card-shadowed p-50 w-400 mb-0" style="max-width: 100%">

@@ -79,6 +79,10 @@
 
 @extends('layouts.AuthTemplate')
 
+@section('pageTitle')
+<title>Larashop - Créer un compte</title>
+@endsection
+
 @section('content')
 
     <div class="card card-shadowed p-50 w-600 mb-0" style="max-width: 100%">
@@ -143,7 +147,8 @@
                 <div class="form-group">
                     <select style="color:black" class="form-control @error('wilaya') is-invalid @enderror" name="wilaya">
                         <option value="" selected disabled>Votre wilaya</option>
-                        <option value="adrar" >Adrar</option>
+                        <option value="Adrar" >Adrar</option>
+                        <option value="Ain Temouchent" >Ain Temouchent</option>
                     </select>
                     @error('wilaya')
                             <span class="invalid-feedback" role="alert">

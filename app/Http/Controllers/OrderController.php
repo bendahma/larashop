@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 
 use App\Order;
 use App\Card;
+use App\Client;
+use App\User;
 use Auth;
 use Alert;
 class OrderController extends Controller
@@ -13,8 +15,9 @@ class OrderController extends Controller
     public function index()
     {
         
-        $orders = Order::with(['users','products'])->get();
-        
+        $orders = Order::with(['users','products'])->orderBy('OrderDate','DESC')->get();
+       
+
         return view('backoffice.orders.index')->with('orders',$orders);
     }
 
@@ -55,9 +58,19 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $products = $order->products;
-        $user = $order->users->first();             
+        $user = $order->users->first();  
+        $client = Client::where('user_id',$user->id)->first();
+
+        $totalPrice = 0;
+        foreach ($products as $product) {
+            $totalPrice += $product->price; 
+        }
+
+
         return view('backoffice.orders.details')
                         ->with('user',$user)
+                        ->with('client',$client)
+                        ->with('totalPrice',$totalPrice)
                         ->with('products',$products);
     }
 
