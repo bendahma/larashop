@@ -47,8 +47,8 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left">
 						<!-- logo -->
-						<a href="/" class="site-logo">
-							<img src="" alt="">
+						<a href="{{url('/')}}" class="site-logo">
+							<img src=" {{asset('img/logo.png')}} " alt="">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
@@ -115,7 +115,8 @@
 					@foreach ($categories as $category)
 					<li>
 						<a href="{{route('site.GetProductByMark',$category->name)}}">
-							<i class="fab fa-apple" style="font-size: 1inderem;color:inheret"></i>
+							{{-- <i class="fab fa-apple" style="font-size: 1inderem;color:inheret"></i> --}}
+							<i class="fas fa-mobile-alt" style="font-size: 1inderem;color:inheret"></i>
 							{{$category->name}} 
 							@if($category->new == 1) 
 								<span class="new">New</span> 
@@ -163,57 +164,37 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="" alt=""></a>
+				<a href="{{url('/')}}"><img src=" {{asset('img/logot.png')}} " alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>About</h2>
-						<p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis ut. Integer ac sem.</p>
+						<h2>LARASHOP</h2>
+						<p>LARASHOP est une vitrine en ligne créer avec LARAVEL</p>
 						<img src="" alt="">
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
+						<h2>Lien important</h2>
 						<ul>
-							<li><a href="">About Us</a></li>
-							<li><a href="">Track Orders</a></li>
-							<li><a href="">Returns</a></li>
-							<li><a href="">Jobs</a></li>
-							<li><a href="">Shipping</a></li>
-							<li><a href="">Blog</a></li>
-						</ul>
-						<ul>
-							<li><a href="">Partners</a></li>
-							<li><a href="">Bloggers</a></li>
-							<li><a href="">Support</a></li>
-							<li><a href="">Terms of Use</a></li>
-							<li><a href="">Press</a></li>
+							<li><a href=" {{ url('/') }} ">Accueil</a></li>
+							<li><a href=" {{ url('/contact') }} ">Contacter-nous</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<div class="footer-widget about-widget">
-						<h2>Questions</h2>
-						<div class="fw-latest-post-widget">
-							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg=""></div>
-								<div class="lp-content">
-									<h6>what shoes to wear</h6>
-									<span>Oct 21, 2018</span>
-									<a href="#" class="readmore">Read More</a>
-								</div>
-							</div>
-							<div class="lp-item">
-								<div class="lp-thumb set-bg" data-setbg=""></div>
-								<div class="lp-content">
-									<h6>trends this year</h6>
-									<span>Oct 21, 2018</span>
-									<a href="#" class="readmore">Read More</a>
-								</div>
-							</div>
-						</div>
+						<h2>Top Marque</h2>
+						
+						<ul>
+							<li><a href=" {{url('/browse/mark/Samsung')}} ">Samsung</a></li>
+							<li><a href=" {{url('/browse/mark/Appel')}} "> Appel</a></li>
+							<li><a href=" {{url('/browse/mark/Huawei')}} ">Huawei</a></li>
+							<li><a href=" {{url('/browse/mark/OPPO')}} ">OPPO</a></li>
+							<li><a href=" {{url('/browse/mark/Xiaomi')}} ">Xiaomi</a></li>
+						</ul>
+
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
@@ -221,19 +202,19 @@
 						<h2>Questions</h2>
 						<div class="con-info">
 							<span>C.</span>
-							<p>Your Company Ltd </p>
+							<p>LARASHOP </p>
 						</div>
 						<div class="con-info">
-							<span>B.</span>
-							<p>1481 Creekside Lane  Avila Beach, CA 93424, P.O. BOX 68 </p>
+							<span>N°.</span>
+							<p>111 AIN TEMOUCHENT ALGERIA </p>
 						</div>
 						<div class="con-info">
 							<span>T.</span>
-							<p>+53 345 7953 32453</p>
+							<p>+213 6 66 93 01 03</p>
 						</div>
 						<div class="con-info">
 							<span>E.</span>
-							<p>office@youremail.com</p>
+							<p>mkaddourbendahma@gmail.com</p>
 						</div>
 					</div>
 				</div>
@@ -251,7 +232,9 @@
 				</div>
 
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 
-        <p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fas fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+        <p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <span class="text-danger">THIS TEMPLATE</span>  is made with <i class="fas fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+        <p class="text-white text-center">THIS WEBSITE WAS MADE BY <span class="text-danger"> LARAVEL FRAMEWORK </span> </p>
+        <p class="text-white text-center">Please contact the DEVELOPER TEAM FOR MORE INFORMATION AT  <span class="text-danger"> mkaddourbendahma@gmail.com </span> </p>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 			</div>

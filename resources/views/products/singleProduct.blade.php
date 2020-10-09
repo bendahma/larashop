@@ -19,14 +19,14 @@
 					<div class="">
 						<img class="product-big-img" src="/storage/{{$product->mainImageUrl($product->id)}}" alt="">
 					</div>
-					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+					{{-- <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
 							<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img src="img/single-product/thumb-1.jpg" alt=""></div>
 							<div class="pt" data-imgbigurl="img/single-product/2.jpg"><img src="img/single-product/thumb-2.jpg" alt=""></div>
 							<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img src="img/single-product/thumb-3.jpg" alt=""></div>
 							<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img src="img/single-product/thumb-4.jpg" alt=""></div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 				<div class="col-lg-6 product-details">
 					<h1 class="p-title"> {{$product->name}} </h1>
@@ -69,24 +69,41 @@
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
-								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Description</button>
+								<button class="panel-link text-danger active" data-toggle="collapse" data-target="#description" aria-expanded="true" aria-controls="description">
+									Description
+								</button>
 							</div>
-							<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+							<div id="description" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
 								<div class="panel-body">
-									{{-- {{ $product->description }} --}}
+									{!! $product->description !!}
 								</div>
 							</div>
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingTwo">
-								<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Configuration </button>
+								<button class="panel-link text-danger" data-toggle="collapse" data-target="#configuartion" aria-expanded="false" aria-controls="configuartion">
+									Configuration 
+								</button>
 							</div>
-							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-								<div class="panel-body ">
-									{{-- <ul>
-										<li> Date sorie {{ $product->characteristic->ReleasedDate }} </li>
-										<li> Network {{ $product->characteristic->Network }} </li>
-									</ul> --}}
+							<div id="configuartion" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+								<div class="panel-body mb-2">
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item"> Date sorie : {{ $product->characteristic->ReleasedDate }} </li>
+										<li class="list-group-item" > Network : {{ $product->characteristic->Network }} </li>
+										<li class="list-group-item" > Dimensions : {{ $product->characteristic->Dimensions  }} </li>
+										<li class="list-group-item" > Display Size : {{ $product->characteristic->DisplaySize }} </li>
+										<li class="list-group-item" > Display Resolution : {{ $product->characteristic->DisplayResolution  }} </li>
+										<li class="list-group-item" > OS : {{ $product->characteristic->OS  }} </li>
+										<li class="list-group-item" > CPU : {{ $product->characteristic->CPU  }} </li>
+										<li class="list-group-item" > GPU : {{ $product->characteristic->GPU  }} </li>
+										<li class="list-group-item" > Memory Card slot : {{ $product->characteristic->MemoryCardslot  }} </li>
+										<li class="list-group-item" > ROM : {{ $product->characteristic->MemoryInternal  }} </li>
+										<li class="list-group-item" > RAM : {{ $product->characteristic->MemoryInternal  }} </li>
+										<li class="list-group-item" > Back Camera : {{ $product->characteristic->MainCamera  }} </li>
+										<li class="list-group-item" > Selfie: {{ $product->characteristic->SelfierCamera  }} </li>
+										<li class="list-group-item" > Sensors: {{ $product->characteristic->Sensors  }} </li>
+										<li class="list-group-item" > Battery: {{ $product->characteristic->Battery  }} </li>
+									</ul>
 								</div>
 							</div>
 

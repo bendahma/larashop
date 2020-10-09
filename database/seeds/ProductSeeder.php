@@ -67,7 +67,9 @@ class ProductSeeder extends Seeder
                 'price' => '200000.00',
                 'category_id' => '1',
             ]);
-    
+            DB::table('characteristics')->insert([
+                'product_id' => $i,
+            ]);    
         }
 
         foreach (Product::all() as $p) {

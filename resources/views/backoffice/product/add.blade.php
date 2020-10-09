@@ -36,7 +36,7 @@
                    <div class="col">
                     <div class="form-group">
                         <label for="" class="text-danger mb-0" style="font-weight: 700">Price</label>
-                        <input type="text" class="form-control" id="mark" placeholder="Product price in DZD" name="price" value="{{isset($product) ? $product->price : ''}}">
+                        <input type="text" class="form-control" id="" placeholder="Product price in DZD" name="price" value="{{isset($product) ? $product->price : ''}}">
                         @error('price')
                             <div class="" style="color:red;font-size:0.8rem;font-weight:700">{{ $message }}</div>
                         @enderror
@@ -49,26 +49,32 @@
                         <label for="" class="text-danger" style="font-weight: 700">Product features</label>
                         <div class="row">
                             <div class="col-lg-2">
-                                <span class="">Released Date</span>
+                                <span class=""><br>Released Date</span>
                             </div>
                             <div class="col-lg-4">      
-                                    <input type="date" class="form-control" name="ReleasedDate">
+                                    <input type="date" class="form-control" name="ReleasedDate" value=" {{isset($product) ? $product->characteristic->ReleasedDate : ''}} ">
+                            </div>
+                            {{--  --}}
+                            <div class="col-lg-1">
+                                <span class=""><br>Network</span>
+                            </div>
+                            <div class="col-lg-4">      
+                                    <input type="text" class="form-control" name="Network" value=" {{isset($product) ? $product->characteristic->Network : ''}} ">
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">Network</span>
+                        <span class=""><br>Display Size</span>
                     </div>
                     <div class="col-lg-4">      
-                            <input type="text" class="form-control" name="Network">
+                            <input type="text" class="form-control" name="DisplaySize">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">Dimensions</span>
+                    <div class="col-lg-1">
+                        <span class="small"><br>Dimensions</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="Dimensions">
@@ -76,31 +82,13 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">DisplaySize</span>
-                    </div>
-                    <div class="col-lg-4">      
-                            <input type="text" class="form-control" name="DisplaySize">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">DisplayResolution</span>
+                        <span class=""><br>Display Resolution</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="DisplayResolution">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">Operating System</span>
-                    </div>
-                    <div class="col-lg-4">      
-                            <input type="text" class="form-control" name="OS">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">C P U</span>
+                    <div class="col-lg-1">
+                        <span class=""><br>C P U</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="CPU">
@@ -108,15 +96,22 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">G P U</span>
+                        <span class=""><br>Operating System</span>
+                    </div>
+                    <div class="col-lg-4">      
+                            <input type="text" class="form-control" name="OS">
+                    </div>
+                    <div class="col-lg-1">
+                        <span class=""><br>G P U</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="GPU">
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">Memory Card slot</span>
+                        <span class=""><br>Memory Card slot</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="MemoryCardslot">
@@ -124,53 +119,52 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">Memory Internal</span>
+                        <span class=""><br>Memory  Internal</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="MemoryInternal">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">Ram</span>
+                    <div class="col-lg-1">
+                        <span class=""><br>Ram</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="MemoryRam">
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">Main Camera</span>
+                        <span class=""><br>Main Camera</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="MainCamera">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">Selfier Camera</span>
+                    <div class="col-lg-1">
+                        <span class="">Selfier <br> Camera</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="SelfierCamera">
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-lg-2">
-                        <span class="">Sensors</span>
+                        <span class=""><br>Sensors</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="Sensors">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2">
-                        <span class="">Battery</span>
+                    <div class="col-lg-1">
+                        <span class=""><br>Battery</span>
                     </div>
                     <div class="col-lg-4">      
                             <input type="text" class="form-control" name="Battery">
                     </div>
                 </div>
                 <div class="row">
+                    
+                </div>
+                <div class="row mt-5">
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="" class="text-danger mb-0" style="font-weight: 700">Colors</label><br/>
@@ -184,7 +178,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col">
                         <div class="form-group">
                             <label for="" class="text-danger mb-0" style="font-weight: 700">Description</label>
@@ -195,7 +189,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="" class="text-danger" style="font-weight: 700">Product Main image</label>

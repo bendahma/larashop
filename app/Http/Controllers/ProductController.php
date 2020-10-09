@@ -112,15 +112,51 @@ class ProductController extends Controller
     {
         $product = Product::withTrashed()->where('id',$id)->first();
         $categories = Category::all();
-
+        $colors = Color::all();
+        $characteristic = Characteristic::where('product_id',$product->id)->first();
+        // dd($characteristic);
         return view('backoffice.product.add')
                 ->with('product',$product)
-                ->with('categories',$categories);
+                ->with('categories',$categories)
+                ->with('colors',$colors)
+                ->with('characteristic',$characteristic);
     }
 
     public function update(Request $request, $id)
     {
         $product = Product::withTrashed()->where('id',$id)->first();
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description ,
+            'price' => $request->price,
+            'category_id' => $request->category,
+        ]);
+
+
+        $c = Color::all();
+        $product->colors()->detach($c);
+        $colors = Color::find($request->colors);
+        $product->colors()->attach($colors);
+
+        $product->characteristic()->update([
+            'ReleasedDate' => $request->ReleasedDate ,
+            'Network' => $request->Network ,
+            'Dimensions' => $request->Dimensions ,
+            'DisplaySize' => $request->DisplaySize ,
+            'DisplayResolution' => $request->DisplayResolution ,
+            'OS' => $request->OS ,
+            'CPU' => $request->CPU ,
+            'GPU' => $request->GPU ,
+            'MemoryCardslot' => $request->MemoryCardslot ,
+            'MemoryInternal' => $request->MemoryInternal ,
+            'MemoryRam' => $request->MemoryRam ,
+            'MainCamera' => $request->MainCamera ,
+            'SelfierCamera' => $request->SelfierCamera ,
+            'Sensors' => $request->Sensors ,
+            'Battery' => $request->Battery ,
+        ]);
+
 
         if($request->has('mainImage')){
             $mainImage = $request->mainImage->store('upload');
@@ -132,24 +168,7 @@ class ProductController extends Controller
                 'url' => $mainImage,
                 'product_id' => $product->id,
                 'productMainImage' => true,
-            ]);
-            $product->update([
-                'name' => $request->name,
-                'details' => $request->details ,
-                'description' => $request->description ,
-                'price' => $request->price,
-                'mark' => $request->mark ,
-                'category_id' => $request->category,
-            ]);
-        }else{
-            $product->update([
-                'name' => $request->name,
-                'details' => $request->details ,
-                'description' => $request->description ,
-                'price' => $request->price,
-                'mark' => $request->mark ,
-                'category_id' => $request->category,
-            ]);
+            ]);   
         }
 
         Alert::success('Product updated successfully','');
