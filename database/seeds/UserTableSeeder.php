@@ -38,12 +38,12 @@ class UserTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 3,
-            'firstName' => 'Benaissa',
-            'lastName' => 'khaled',
+            'firstName' => 'tom',
+            'lastName' => 'Hardy',
             'DateOfBirth' => '1992-09-17',
-            'phone' => '213778923641',
-            'username' => 'Benaissa',
-            'email' => 'BenaissaKhaled@gmail.com',
+            'phone' => '+213666930103',
+            'username' => 'tom',
+            'email' => 'tomhardy@gmail.com',
             'password' => Hash::make('aaaaaaaa'),
             'role' => 'client',
         ]);

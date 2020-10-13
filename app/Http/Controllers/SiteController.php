@@ -102,4 +102,9 @@ class SiteController extends Controller {
 
         return view('contact')->with('categories',$categories);
     }
+
+    public function Message(Request $request){
+        dump(Auth::user());
+        dd($request->all());
+    }
 }

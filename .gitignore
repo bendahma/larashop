@@ -5,6 +5,7 @@
 /vendor
 /BTS ADMIN
 /CLIENTS
+/SecondsVersion
 .env
 .env.backup
 .phpunit.result.cache

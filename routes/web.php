@@ -7,6 +7,7 @@ Auth::routes();
 Route::get('/', 'SiteController@index')->name('site');
 Route::get('/search/', 'SiteController@searchProduct')->name('search');
 Route::get('/contact','SiteController@Contact')->name('contact');
+Route::post('/contact/messsage','SiteController@Message')->name('site.sendMessage');
 
 // Site specific routes
 Route::get('/browse/product/{product}', 'SiteController@GetProduct')->name('site.singleProduct');

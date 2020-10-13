@@ -12,7 +12,7 @@
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 
 	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+	{{-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet"> --}}
 
 
 	<!-- Stylesheets -->
@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="{{asset('css/fontawsome.css')}}"/>
 
 	<!-- SweetAlert2 -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+	{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css"> --}}
 
 	
 
@@ -206,7 +206,7 @@
 						</div>
 						<div class="con-info">
 							<span>N°.</span>
-							<p>111 AIN TEMOUCHENT ALGERIA </p>
+							<p>N°111 RUE XXX AIN TEMOUCHENT ALGERIA </p>
 						</div>
 						<div class="con-info">
 							<span>T.</span>
@@ -231,11 +231,9 @@
 					<a href="" class="tumblr"><i class="fab fa-tumblr-square"></i><span>tumblr</span></a>
 				</div>
 
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> 
-        <p class="text-white text-center mt-5">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <span class="text-danger">THIS TEMPLATE</span>  is made with <i class="fas fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+        <p class="text-white text-center mt-5">2020 - <script>document.write(new Date().getFullYear());</script> All rights reserved | <span class="text-danger">THIS TEMPLATE</span>  is made with <i class="fas fa-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
         <p class="text-white text-center">THIS WEBSITE WAS MADE BY <span class="text-danger"> LARAVEL FRAMEWORK </span> </p>
         <p class="text-white text-center">Please contact the DEVELOPER TEAM FOR MORE INFORMATION AT  <span class="text-danger"> mkaddourbendahma@gmail.com </span> </p>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 			</div>
 		</div>
@@ -253,7 +251,7 @@
             <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 			<script src="{{asset('js/main.js')}}"></script>
 			<script src="{{asset('js/app.js')}}"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+			{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script> --}}
 			@yield('scripts')
 			
     </section>
