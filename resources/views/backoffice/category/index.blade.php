@@ -4,8 +4,8 @@
         <h4>All categories</h4>
         <div class="row mt-4">
             @foreach ($categories as $category)
-                <div class="col-lg-4 shadow-sm mb-2 bg-white">
-                    <img src="/storage/{{$category->image->url}}" alt="category image" class="img-responsive menu-thumbnails" width="100%" height="200vh" style="object-fit: fill">
+                <div class="col-lg-3 shadow-sm mb-2 bg-white mr-3">
+                    <img src="/storage/{{$category->image->url}}" alt="category image" class="img-responsive" width="100%" height="200vh" >
                     <div class="d-flex justify-content-center" >
                         <div class="">
                             <a  href="" class="justify-content-center">

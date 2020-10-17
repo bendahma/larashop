@@ -96,7 +96,7 @@
     <section class="top-letest-product-section" id="letest">
         <div class="container">
             <div class="section-title">
-                <h2>DERNIER PRODUITS</h2>
+                <h2>NOUVEAUX PRODUITS</h2>
             </div>
             <div class="product-slider owl-carousel">
                 @foreach ($latestProducts as $latest)

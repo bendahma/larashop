@@ -7,10 +7,8 @@
 @section('content')
 
     <div class="card card-shadowed p-50 w-600 mb-0" style="max-width: 100%">
-      <h5 class="text-uppercase text-center">Create an account</h5>
-      <br>
-      
-      <div class="divider">Or Sign Up With</div>
+      <h5 class="text-uppercase text-center">Créer un compte chez larashop</h5>      
+      <div class="divider"></div>
 
       <form method="POST" action="{{route('register')}}">
         @csrf
@@ -136,13 +134,13 @@
         <input type="hidden" name="role" value="client">
 
         <div class="form-group">
-          <button class="btn btn-bold btn-block btn-success text-dark" style="font-size:0.9rem" type="submit">Register</button>
+          <button class="btn btn-bold btn-block btn-success text-dark" style="font-size:0.9rem" type="submit">S'inscrire</button>
         </div>
       </form>
 
       
 
-      <p class="text-center text-muted fs-13 mt-20">You already have an account? <a href="{{route('login')}}">Sign In</a></p>
+      <p class="text-center fs-13 mt-20 ">Avez-vous Déjà un compte? <a href="{{route('login')}}" class="btn btn-outline-success">Se connecté</a></p>
     </div>
 
 @endsection

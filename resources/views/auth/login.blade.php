@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="card card-shadowed p-50 w-400 mb-0" style="max-width: 100%">
-      <h5 class="text-uppercase text-center">Login</h5>
-      <br>
-      <div class="divider">Or Sign In With</div>
+      <h5 class="text-uppercase text-center">Se connecté</h5>
+      
+      <div class="divider"></div>
 
       <form method="POST" action="{{route('login')}}">
         @csrf

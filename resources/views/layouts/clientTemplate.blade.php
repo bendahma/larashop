@@ -12,7 +12,7 @@
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 
 	<!-- Google Font -->
-	{{-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet"> --}}
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
 
 	<!-- Stylesheets -->
@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="{{asset('css/fontawsome.css')}}"/>
 
 	<!-- SweetAlert2 -->
-	{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css"> --}}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
 
 	
 
@@ -241,6 +241,8 @@
 
     {{-- Javascript Plugins --}}
     <section>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+ss
             <!--====== Javascripts & Jquery ======-->
             <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
             <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -251,7 +253,6 @@
             <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 			<script src="{{asset('js/main.js')}}"></script>
 			<script src="{{asset('js/app.js')}}"></script>
-			{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script> --}}
 			@yield('scripts')
 			
     </section>
