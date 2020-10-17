@@ -107,11 +107,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Orders</h6>
-            <a class="collapse-item" href="">New Orders</a>
-            <a class="collapse-item" href="">Uncompleted Orders</a>
-            <a class="collapse-item" href="">Completed Orders</a>
-            <a class="collapse-item" href=" {{route('order.index')}} ">All Orders</a>
-            
+                <a class="collapse-item" href=" {{route('order.index')}} ">All Orders</a>
           </div>
         </div>
       </li>
@@ -119,12 +115,12 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
+      {{-- <div class="sidebar-heading">
         STORE
-      </div>
+      </div> --}}
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseStock" aria-expanded="true" aria-controls="collapseStock">
           <i class="fas fa-fw fa-folder"></i>
           <span>Stock</span>
@@ -136,21 +132,7 @@
             <a class="collapse-item" href="">Fill Stock</a>
           </div>
         </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
+      </li> --}}
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
